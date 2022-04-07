@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useEffect } from 'react'
 import listImages from './Images'
 const listMembers = [
   {
@@ -63,7 +62,7 @@ function App() {
                 getNote.style.display = 'none'
                 getInfor.style.display = 'block'
                 setInfor(member)
-              }} className='member col-lg-5' key={index}>
+              }} className='member col-xs-10 col-sm-10 col-md-5 col-lg-5' key={index}>
                 {member.name}
               </li>
             ))
@@ -71,13 +70,17 @@ function App() {
         </ul>
         <p className='note'>Bấm vào để xem thông tin nhân viên.</p>
         <div className='infor'>
-          <img src={infor.Image} />
-          <h1>{infor.name}</h1>
-          <p>Ngày vào sinh : {infor.ngaySinh}</p>
-          <p>Ngày vào công ty : {infor.ngayVaoCongTy}</p>
-          <p>Phòng ban : {infor.phongBan}</p>
-          <p>Số ngày nghỉ còn lại : {infor.ngayNghiHienCo}</p>
-          <p>Số ngày đã làm thêm : {infor.ngayDaLamThem}</p>
+          <div className='row'>
+            <div className='infor-child col-xs-11 col-sm-11 col-md-4 col-lg-4'><img src={infor.Image} /></div>
+            <div className='infor-child col-xs-11 col-sm-11 col-md-4 col-lg-7'>
+              <h1>{infor.name}</h1>
+              <p>Ngày vào sinh : {infor.ngaySinh}</p>
+              <p>Ngày vào công ty : {infor.ngayVaoCongTy}</p>
+              <p>Phòng ban : {infor.phongBan}</p>
+              <p>Số ngày nghỉ còn lại : {infor.ngayNghiHienCo}</p>
+              <p>Số ngày đã làm thêm : {infor.ngayDaLamThem}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
