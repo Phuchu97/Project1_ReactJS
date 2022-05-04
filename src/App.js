@@ -7,9 +7,16 @@ import Footer from './Pages/footer';
 import { listMembers } from './Pages/listMember'
 import { listPhongBan } from './Pages/listPhongBan';
 import NhanVienChild from './Pages/NhanVienChild';
+import { useState } from 'react';
+
 function App() {
+  const [showNav, setShowNav] = useState(true)
+  const handleSwitchNav = () => {
+      setShowNav(!showNav)
+  }
   const StaffWithId = () => {
     let { memberId } = useParams();
+    console.log(memberId);
     return (
       <NhanVienChild member={listMembers.filter((member) => member.id === parseInt(memberId))[0]} />
     );
@@ -17,8 +24,9 @@ function App() {
   return (
     <div className="App">
       <nav className='nav'>
-        <ul className='list-title'>
-          <Link className='list-title-title' to="/"><img src={listImages.imojiImage} /></Link>
+        <div onClick={handleSwitchNav} className='nav-menu'><i class="fa-solid fa-bars"></i></div>
+        <ul className={`list-title ${showNav? 'show' : ''}`}>
+          <Link className='list-title-title nav-image' to="/"><img src={listImages.imojiImage} /></Link>
           <Link className='list-title-item' to="/">Thuyền Viên</Link>
           <Link className='list-title-item' to="/PhongBan">Phòng Ban</Link>
           <Link className='list-title-item' to="/BangLuong">Bảng Lương</Link>
