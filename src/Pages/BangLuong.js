@@ -1,8 +1,8 @@
-function BangLuong ({listMember}) {
+function BangLuong ({listStaff}) {
     return (
         <ul className="list-bangLuong row">
             {
-                listMember.map((member, index) => (
+                listStaff.map((member, index) => (
                     <li className="list-bangLuong-item col-xs-12 col-sm-12 col-md-6 col-lg-4" key={index}>
                         <div className="list-bangLuong-item-content">
                             <h1>{member.name}</h1>

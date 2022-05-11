@@ -73,7 +73,7 @@ export const listMembers = [
         salaryScale: 1
     },
     {
-        id:0,
+        id:6,
       name: 'Monkey D.Luffy',
       ngaySinh: '01/01/1998',
       ngayVaoCongTy: '09/08/2021',
@@ -85,7 +85,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:1,
+        id:7,
       name: 'Nami',
       ngaySinh: '11/08/1998',
       ngayVaoCongTy: '09/08/2021',
@@ -97,7 +97,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:2,
+        id:8,
       name: 'Nico Robin',
       ngaySinh: '15/09/1998',
       ngayVaoCongTy: '25/08/2021',
@@ -109,7 +109,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:3,
+        id:9,
       name: 'Vinsmoke Sanji',
       ngaySinh: '17/07/2002',
       ngayVaoCongTy: '15/02/2022',
@@ -121,7 +121,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:4,
+        id:10,
       name: 'Zoro',
       ngaySinh: '24/05/2001',
       ngayVaoCongTy: '16/02/2019',
@@ -133,7 +133,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:5,
+        id:11,
         name: 'Yamato',
         ngaySinh: '24/05/2001',
         ngayVaoCongTy: '16/02/2019',
@@ -145,7 +145,7 @@ export const listMembers = [
         salaryScale: 1
     },
     {
-        id:0,
+        id:12,
       name: 'Monkey D.Luffy',
       ngaySinh: '01/01/1998',
       ngayVaoCongTy: '09/08/2021',
@@ -157,7 +157,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:1,
+        id:13,
       name: 'Nami',
       ngaySinh: '11/08/1998',
       ngayVaoCongTy: '09/08/2021',
@@ -169,7 +169,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:2,
+        id:14,
       name: 'Nico Robin',
       ngaySinh: '15/09/1998',
       ngayVaoCongTy: '25/08/2021',
@@ -181,7 +181,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:3,
+        id:15,
       name: 'Vinsmoke Sanji',
       ngaySinh: '17/07/2002',
       ngayVaoCongTy: '15/02/2022',
@@ -193,7 +193,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:4,
+        id:16,
       name: 'Zoro',
       ngaySinh: '24/05/2001',
       ngayVaoCongTy: '16/02/2019',
@@ -205,7 +205,7 @@ export const listMembers = [
       salaryScale: 1
     },
     {
-        id:5,
+        id:17,
         name: 'Yamato',
         ngaySinh: '24/05/2001',
         ngayVaoCongTy: '16/02/2019',

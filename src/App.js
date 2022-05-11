@@ -14,13 +14,16 @@ function App() {
   const handleSwitchNav = () => {
       setShowNav(!showNav)
   }
+  const [listStaff, setListStaff] = useState(listMembers)
   const StaffWithId = () => {
     let { memberId } = useParams();
-    console.log(memberId);
     return (
-      <NhanVienChild member={listMembers.filter((member) => member.id === parseInt(memberId))[0]} />
+      <NhanVienChild member={listStaff.filter((member) => member.id === parseInt(memberId))[0]} />
     );
   };
+  const handleListStaff = (staff) => {
+    setListStaff([...listStaff, staff])
+  }
   return (
     <div className="App">
       <nav className='nav'>
@@ -33,10 +36,16 @@ function App() {
         </ul>
       </nav>
       <Routes>
-        <Route path="/" element={<NhanVien listMember={listMembers} />} />
+        <Route 
+          path="/" 
+          element={<NhanVien 
+            handleListStaff={handleListStaff} 
+            listStaff={listStaff} 
+          />} 
+        />
         <Route path='/NhanVien/:memberId' element={<StaffWithId />} />
         <Route path="/PhongBan" element={<PhongBan listPhongBan={listPhongBan}/>} />
-        <Route path="/BangLuong" element={<BangLuong listMember={listMembers}/>} />
+        <Route path="/BangLuong" element={<BangLuong listStaff={listStaff}/>} />
       </Routes>
       <Footer/>
     </div>

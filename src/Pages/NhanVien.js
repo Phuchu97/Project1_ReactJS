@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ModalForm from './modalForm'
 function NhanVien(props) {
-  const listMembers = props.listMember;
+  const listMembers = props.listStaff;
   const [keyword, setKeyWord] = useState('');
   const [curentMember, setCurrentMember] = useState(listMembers)
   const [modal,setModal] = useState(false)
@@ -13,6 +13,9 @@ function NhanVien(props) {
   const handleOpenForm = () => {
     setModal(!modal)
   }
+  useEffect(() => {
+    setCurrentMember(listMembers)
+  }, [listMembers]);
     return (
         <div className='container list-content'>
             <div className='NV-header row'>
@@ -46,7 +49,11 @@ function NhanVien(props) {
                     ))
                 }
             </ul>
-            {modal && <ModalForm handleOpenForm={handleOpenForm}/>}
+            {modal && <ModalForm
+              handleListStaff={props.handleListStaff}
+              listMembers={listMembers} 
+              handleOpenForm={handleOpenForm}
+            />}
       </div>
     )
 }
