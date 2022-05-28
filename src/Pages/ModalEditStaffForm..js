@@ -1,21 +1,17 @@
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useDispatch } from 'react-redux';
-import { postStaff } from '../API/FetAPI'
+import { patchStaff } from '../API/FetAPI'
 import { fetchAPIStaff } from '../Actions/ActionCreator'
 import { motion } from 'framer-motion'
 
-function ModalForm({ listMembers, handleOpenForm }) {
+function ModalEditStaffForm({ currentID, handleOpenEditForm }) {
   const dispatch = useDispatch()
-
-  const callbackPostForm = (data) => {
-    dispatch(fetchAPIStaff(data))
-  }
 
   const formik = useFormik({
     initialValues: {
-      id: listMembers.length,
       name: '',
+      id: currentID,
       dob: '',
       startDate: '',
       departmentId: '',
@@ -31,18 +27,21 @@ function ModalForm({ listMembers, handleOpenForm }) {
         annualLeave: Yup.string().required("Không được để trống").matches(/^[0-9]+$/, "Nội dung phải bằng chữ số")
     }),
     onSubmit: (values) => {
-      handleOpenForm()
-      postStaff(values, callbackPostForm)
-    }
+        handleOpenEditForm()
+        const callbackPatchForm = (data) => {
+            dispatch(fetchAPIStaff(data))
+        }
+        patchStaff(values, callbackPatchForm)
+    } 
   })
 
-  const modalFormAnimation = {
+  const modalEditAnimation = {
     hidden: {
-      y: '-100vh',
+      x: '-100vh',
       opacity: 0
     },
     visible: {
-      y: '0',
+      x: '0',
       opacity: 1,
       transition: {
         duration:  0.1,
@@ -52,23 +51,23 @@ function ModalForm({ listMembers, handleOpenForm }) {
       }
     },
     exit: {
-      y: '100vh',
+      x: '100vh',
       opacity: 0
     }
   }
     return (
         <div className='modal-plus'>
               <div className='modal-overlay'></div>
-              <div className='modal-form'>
+              <div className='modal-form '>
                 <motion.div 
-                variants={modalFormAnimation}
+                variants={modalEditAnimation}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className='form'>
+                className='form edit-form'>
                   <div className="form-close">
-                    <h1 className='form-close-title'>Thêm Nhân Viên</h1>
-                    <div className='form-close-icon'><i onClick={handleOpenForm} class="fa-solid fa-xmark"></i></div>
+                    <h1 className='form-close-title'>Chỉnh sửa thông tin</h1>
+                    <div className='form-close-icon'><i onClick={handleOpenEditForm} class="fa-solid fa-xmark"></i></div>
                   </div>
                   <form className="form-content" onSubmit={formik.handleSubmit} >
                     <label className="row">
@@ -151,11 +150,11 @@ function ModalForm({ listMembers, handleOpenForm }) {
                         name='overTime'
                         type="text" />
                     </label>
-                    <input type='submit' value="Thêm mới" />
+                    <input type='submit' value="Chỉnh lại" />
                   </form>
                 </motion.div>
               </div>
         </div>
     )
 }
-export default ModalForm
+export default ModalEditStaffForm
